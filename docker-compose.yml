@@ -10,22 +10,6 @@ services:
      - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
     ports:
       - 5000:5000
-    environment:
-      - CONNECTION_STRING=Host=dev-database;Port=5432;Database=testdb;Username=postgres;Password=mypassword
-# TODO: If using DynamoDb remove the line above and uncomment the section below.
-#      - DynamoDb_LocalMode=true
-#      - DynamoDb_LocalServiceUrl=http://dynamodb-database:8000
-#      - AWS_REGION=eu-west-2
-#      - AWS_ACCESS_KEY_ID=local
-#      - AWS_SECRET_ACCESS_KEY=local
-    links:
-      - dev-database
-  dev-database:
-    env_file:
-      - database.env
-    image: postgres:12
-    volumes:
-      - ./database:/docker-entrypoint-initdb.d
 
   assessment-person-api-test:
     image: assessment-person-api-test
@@ -34,17 +18,3 @@ services:
       dockerfile: AssessmentPersonAPI.Tests/Dockerfile
       args:
       - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
-# TODO: If using DynamoDb remove the line above and uncomment the section below.
-#      - DynamoDb_LocalMode=true
-#      - DynamoDb_LocalServiceUrl=http://dynamodb-database:8000
-#      - AWS_REGION=eu-west-2
-#      - AWS_ACCESS_KEY_ID=local
-#      - AWS_SECRET_ACCESS_KEY=local
-# TODO: If using DynamoDb remove the line above and uncomment the line below.
-#      - dynamodb-database
-
-# TODO: If using DynamoDb remove the 'test-database' section above and uncomment the lines below.
-#  dynamodb-database:
-#    image: amazon/dynamodb-local
-#    ports:
-#      - 8000:8000
