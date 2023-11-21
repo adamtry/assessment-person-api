@@ -3,8 +3,8 @@ using AssessmentPersonAPI.V1.Boundary.Response;
 
 namespace AssessmentPersonAPI.V1.UseCase.Interfaces
 {
-    public interface IGetPersonsByNameUseCase
+    public interface IGetAllPersonsUseCase
     {
-        List<ResponseObject> Execute(string name);
+        List<PersonResponseObject> Execute();
     }
 }

@@ -160,25 +160,26 @@ namespace AssessmentPersonAPI.V1.Gateways
             _databaseContext = databaseContext;
         }
 
-        public List<Person> SearchPersons(string name)
+        public List<Person> Search(string query)
         {
             var allEntities = GetAll();
 
             var result = allEntities.Where(person =>
             {
                 var combinedFields = $"{person.FirstName.ToLower()} {person.LastName.ToLower()} {person.Email.ToLower()}";
-                return (combinedFields).Contains(name.ToLower());
+                return (combinedFields).Contains(query.ToLower());
             });
 
-            return result.Select(x => x.ToDomain()).ToList();
+            return result.ToList();
         }
 
-        public List<PersonEntity> GetAll()
+        public List<Person> GetAll()
         {
             RawPersonData = RawPersonData.Replace("first_name", "firstName")
                 .Replace("last_name", "lastName");
-            var result = JsonConvert.DeserializeObject<List<PersonEntity>>(RawPersonData);
-            return result;
+            var data = JsonConvert.DeserializeObject<List<PersonEntity>>(RawPersonData);
+            var result = data.Select(x => x.ToDomain()).ToList();
+            return result.ToList();
         }
     }
 }

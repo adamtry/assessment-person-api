@@ -13,24 +13,43 @@ namespace AssessmentPersonAPI.V1.Controllers
     [ApiVersion("1.0")]
     public class AssessmentPersonApiController : BaseController
     {
-        private readonly IGetPersonsByNameUseCase _getPersonsByNameUseCase;
-        public AssessmentPersonApiController(IGetPersonsByNameUseCase getPersonsByNameUseCase)
+        private readonly IGetPersonsByQueryUseCase _getPersonsByQueryUseCase;
+        private readonly IGetAllPersonsUseCase _getAllPersonsUseCase;
+
+        public AssessmentPersonApiController(IGetPersonsByQueryUseCase getPersonsByQueryUseCase, IGetAllPersonsUseCase getAllPersonsUseCase)
         {
-            _getPersonsByNameUseCase = getPersonsByNameUseCase;
+            _getPersonsByQueryUseCase = getPersonsByQueryUseCase;
+            _getAllPersonsUseCase = getAllPersonsUseCase;
         }
 
         /// <summary>
-        /// ...
+        /// Returns a list of persons matching the specified query
         /// </summary>
         /// <response code="200">...</response>
         /// <response code="404">No ? found for the specified ID</response>
-        [ProducesResponseType(typeof(ResponseObject), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PersonResponseObject), StatusCodes.Status200OK)]
         [HttpGet]
         [LogCall(LogLevel.Information)]
-        [Route("{personName}")]
-        public IActionResult ViewRecord(string personName)
+        [Route("search")]
+        public IActionResult Query()
         {
-            return Ok(_getPersonsByNameUseCase.Execute(personName));
+            var query = HttpContext.Request.Query["query"].ToString();
+            var result = _getPersonsByQueryUseCase.Execute(query);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Returns all people
+        /// </summary>
+        /// <response code="200">...</response>
+        [ProducesResponseType(typeof(PersonResponseObject), StatusCodes.Status200OK)]
+        [HttpGet]
+        [LogCall(LogLevel.Information)]
+        [Route("all")]
+        public IActionResult GetAll()
+        {
+            var result = _getAllPersonsUseCase.Execute();
+            return Ok(result);
         }
     }
 }

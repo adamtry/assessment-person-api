@@ -7,6 +7,6 @@ namespace AssessmentPersonAPI.V1.Boundary.Response
     {
         //TODO: Rename field to match the name of the response object
         //TODO: add xml comments containing information that will be included in the auto generated swagger docs (https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Controllers-and-Response-Objects)
-        public List<ResponseObject> ResponseObjects { get; set; }
+        public List<PersonResponseObject> ResponseObjects { get; set; }
     }
 }

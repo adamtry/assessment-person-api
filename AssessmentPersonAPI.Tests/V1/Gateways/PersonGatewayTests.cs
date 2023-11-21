@@ -62,7 +62,7 @@ namespace AssessmentPersonAPI.Tests.V1.Gateways
         [Test]
         public void GetPersonByNameReturnsAllMatchingPeople()
         {
-            var response = _classUnderTest.SearchPersons("James");
+            var response = _classUnderTest.Search("James");
 
             response.Count.Should().Be(2);
             response[0].FirstName.Should().Be("James");
@@ -75,7 +75,7 @@ namespace AssessmentPersonAPI.Tests.V1.Gateways
         [Test]
         public void GetPersonByPartialNameReturnsAllMatchingPeople()
         {
-            var response = _classUnderTest.SearchPersons("Jam");
+            var response = _classUnderTest.Search("Jam");
 
             response.Count.Should().Be(3);
             response[0].FirstName.Should().Be("James");
@@ -91,7 +91,7 @@ namespace AssessmentPersonAPI.Tests.V1.Gateways
         [Test]
         public void GetPersonByFullNameReturnsAllMatchingPeople()
         {
-            var response = _classUnderTest.SearchPersons("Katey Soltan");
+            var response = _classUnderTest.Search("Katey Soltan");
 
             response.Count.Should().Be(1);
             response[0].FirstName.Should().Be("Katey");
@@ -101,7 +101,7 @@ namespace AssessmentPersonAPI.Tests.V1.Gateways
         [Test]
         public void SearchPersonsReturnsNoResultsIfNoneMatch()
         {
-            var response = _classUnderTest.SearchPersons("Jasmine Duncan");
+            var response = _classUnderTest.Search("Jasmine Duncan");
 
             response.Count.Should().Be(0);
         }

@@ -7,14 +7,19 @@ namespace AssessmentPersonAPI.V1.Factories
 {
     public static class ResponseFactory
     {
-        //TODO: Map the fields in the domain object(s) to fields in the response object(s).
-        // More information on this can be found here https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Factory-object-mappings
-        public static ResponseObject ToResponse(this Person domain)
+        public static PersonResponseObject ToResponse(this Person domain)
         {
-            return new ResponseObject();
+            return new PersonResponseObject()
+            {
+                Id = domain.Id,
+                FirstName = domain.FirstName,
+                LastName = domain.LastName,
+                Email = domain.Email,
+                Gender = domain.Gender
+            };
         }
 
-        public static List<ResponseObject> ToResponse(this IEnumerable<Person> domainList)
+        public static List<PersonResponseObject> ToResponse(this IEnumerable<Person> domainList)
         {
             return domainList.Select(domain => domain.ToResponse()).ToList();
         }
