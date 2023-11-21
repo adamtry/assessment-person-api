@@ -141,10 +141,15 @@ namespace AssessmentPersonAPI
         {
             var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
+            // TODO: Rework this to be configured to return JSON
+            if (string.IsNullOrEmpty(connectionString))
+                connectionString = "test";
+
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
             services.AddDbContext<DatabaseContext>(
                 opt => opt.UseNpgsql(connectionString).AddXRayInterceptor(true));
+
         }
 
 
