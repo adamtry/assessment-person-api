@@ -6,19 +6,22 @@ namespace AssessmentPersonAPI.Tests.V1.Helper
 {
     public static class DatabaseEntityHelper
     {
-        public static DatabaseEntity CreateDatabaseEntity()
+        public static PersonEntity CreateDatabaseEntity()
         {
-            var entity = new Fixture().Create<Entity>();
+            var entity = new Fixture().Create<PersonEntity>();
 
             return CreateDatabaseEntityFrom(entity);
         }
 
-        public static DatabaseEntity CreateDatabaseEntityFrom(Entity entity)
+        public static PersonEntity CreateDatabaseEntityFrom(PersonEntity personEntity)
         {
-            return new DatabaseEntity
+            return new PersonEntity
             {
-                Id = entity.Id,
-                CreatedAt = entity.CreatedAt,
+                Id = personEntity.Id,
+                FirstName = personEntity.FirstName,
+                LastName = personEntity.LastName,
+                Email = personEntity.Email,
+                Gender = personEntity.Gender
             };
         }
     }

@@ -64,7 +64,7 @@ namespace AssessmentPersonAPI
 
             services.AddSingleton<IApiVersionDescriptionProvider, DefaultApiVersionDescriptionProvider>();
 
-            services.AddDynamoDbHealthCheck<DatabaseEntity>();
+            services.AddDynamoDbHealthCheck<PersonEntity>();
 
             services.AddTokenFactory();
 
@@ -156,7 +156,7 @@ namespace AssessmentPersonAPI
 
         private static void RegisterGateways(IServiceCollection services)
         {
-            services.AddScoped<IExampleGateway, ExampleGateway>();
+            services.AddScoped<IPersonGateway, PersonGateway>();
 
             //TODO: For DynamoDb, remove the line above and uncomment the line below.
             //services.AddScoped<IExampleDynamoGateway, DynamoDbGateway>();
@@ -164,8 +164,7 @@ namespace AssessmentPersonAPI
 
         private static void RegisterUseCases(IServiceCollection services)
         {
-            services.AddScoped<IGetAllUseCase, GetAllUseCase>();
-            services.AddScoped<IGetByIdUseCase, GetByIdUseCase>();
+            services.AddScoped<IGetPersonByNameUseCase, GetPersonPersonByNameUseCase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

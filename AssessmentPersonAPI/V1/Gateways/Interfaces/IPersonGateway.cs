@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using AssessmentPersonAPI.V1.Domain;
+using AssessmentPersonAPI.V1.Infrastructure;
 
 namespace AssessmentPersonAPI.V1.Gateways
 {
-    public interface IExampleGateway
+    public interface IPersonGateway
     {
-        Entity GetEntityById(int id);
-
-        List<Entity> GetAll();
+        Person GetPersonByName(string name);
     }
 }

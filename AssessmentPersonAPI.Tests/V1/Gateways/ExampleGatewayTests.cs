@@ -2,6 +2,7 @@ using AutoFixture;
 using AssessmentPersonAPI.Tests.V1.Helper;
 using AssessmentPersonAPI.V1.Domain;
 using AssessmentPersonAPI.V1.Gateways;
+using AssessmentPersonAPI.V1.Infrastructure;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -14,37 +15,20 @@ namespace AssessmentPersonAPI.Tests.V1.Gateways
     public class ExampleGatewayTests : DatabaseTests
     {
         private readonly Fixture _fixture = new Fixture();
-        private ExampleGateway _classUnderTest;
+        private PersonGateway _classUnderTest;
 
         [SetUp]
         public void Setup()
         {
-            _classUnderTest = new ExampleGateway(DatabaseContext);
+            _classUnderTest = new PersonGateway(DatabaseContext);
         }
 
         [Test]
         public void GetEntityByIdReturnsNullIfEntityDoesntExist()
         {
-            var response = _classUnderTest.GetEntityById(123);
+            var response = _classUnderTest.GetPersonByName("asdf");
 
             response.Should().BeNull();
         }
-
-        [Test]
-        public void GetEntityByIdReturnsTheEntityIfItExists()
-        {
-            var entity = _fixture.Create<Entity>();
-            var databaseEntity = DatabaseEntityHelper.CreateDatabaseEntityFrom(entity);
-
-            DatabaseContext.DatabaseEntities.Add(databaseEntity);
-            DatabaseContext.SaveChanges();
-
-            var response = _classUnderTest.GetEntityById(databaseEntity.Id);
-
-            databaseEntity.Id.Should().Be(response.Id);
-            databaseEntity.CreatedAt.Should().BeSameDateAs(response.CreatedAt);
-        }
-
-        //TODO: Add tests here for the get all method.
     }
 }

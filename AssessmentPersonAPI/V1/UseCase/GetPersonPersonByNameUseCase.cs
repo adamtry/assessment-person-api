@@ -7,18 +7,18 @@ using Hackney.Core.Logging;
 namespace AssessmentPersonAPI.V1.UseCase
 {
     //TODO: Rename class name and interface name to reflect the entity they are representing eg. GetClaimantByIdUseCase
-    public class GetByIdUseCase : IGetByIdUseCase
+    public class GetPersonPersonByNameUseCase : IGetPersonByNameUseCase
     {
-        private IExampleGateway _gateway;
-        public GetByIdUseCase(IExampleGateway gateway)
+        private IPersonGateway _gateway;
+        public GetPersonPersonByNameUseCase(IPersonGateway gateway)
         {
             _gateway = gateway;
         }
         [LogCall]
         //TODO: rename id to the name of the identifier that will be used for this API, the type may also need to change
-        public ResponseObject Execute(int id)
+        public ResponseObject Execute(string name)
         {
-            return _gateway.GetEntityById(id).ToResponse();
+            return _gateway.GetPersonByName(name).ToResponse();
         }
     }
 }

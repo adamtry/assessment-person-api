@@ -11,6 +11,6 @@ namespace AssessmentPersonAPI.V1.Infrastructure
         {
         }
 
-        public DbSet<DatabaseEntity> DatabaseEntities { get; set; }
+        public DbSet<PersonEntity> DatabaseEntities { get; set; }
     }
 }

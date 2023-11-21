@@ -5,26 +5,29 @@ namespace AssessmentPersonAPI.V1.Factories
 {
     public static class EntityFactory
     {
-        public static Entity ToDomain(this DatabaseEntity databaseEntity)
+        public static Person ToDomain(this PersonEntity personEntity)
         {
-            //TODO: Map the rest of the fields in the domain object.
-            // More information on this can be found here https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Factory-object-mappings
-
-            return new Entity
+            return new Person
             {
-                Id = databaseEntity.Id,
-                CreatedAt = databaseEntity.CreatedAt
+                Id = personEntity.Id,
+                FirstName = personEntity.FirstName,
+                LastName = personEntity.LastName,
+                Email = personEntity.Email,
+                Gender = personEntity.Gender
             };
         }
 
-        public static DatabaseEntity ToDatabase(this Entity entity)
+        public static PersonEntity ToDatabase(this Person person)
         {
             //TODO: Map the rest of the fields in the database object.
 
-            return new DatabaseEntity
+            return new PersonEntity
             {
-                Id = entity.Id,
-                CreatedAt = entity.CreatedAt
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Email = person.Email,
+                Gender = person.Gender
             };
         }
     }

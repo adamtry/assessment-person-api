@@ -8,34 +8,15 @@ using Microsoft.Extensions.Logging;
 namespace AssessmentPersonAPI.V1.Controllers
 {
     [ApiController]
-    //TODO: Rename to match the APIs endpoint
     [Route("api/v1/residents")]
     [Produces("application/json")]
     [ApiVersion("1.0")]
-    //TODO: rename class to match the API name
     public class AssessmentPersonApiController : BaseController
     {
-        private readonly IGetAllUseCase _getAllUseCase;
-        private readonly IGetByIdUseCase _getByIdUseCase;
-        public AssessmentPersonApiController(IGetAllUseCase getAllUseCase, IGetByIdUseCase getByIdUseCase)
+        private readonly IGetPersonByNameUseCase _getPersonByNameUseCase;
+        public AssessmentPersonApiController(IGetPersonByNameUseCase getPersonByNameUseCase)
         {
-            _getAllUseCase = getAllUseCase;
-            _getByIdUseCase = getByIdUseCase;
-        }
-
-        //TODO: add xml comments containing information that will be included in the auto generated swagger docs (https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Controllers-and-Response-Objects)
-        /// <summary>
-        /// ...
-        /// </summary>
-        /// <response code="200">...</response>
-        /// <response code="400">Invalid Query Parameter.</response>
-        [ProducesResponseType(typeof(ResponseObjectList), StatusCodes.Status200OK)]
-        [HttpGet]
-        [LogCall(LogLevel.Information)]
-
-        public IActionResult ListContacts()
-        {
-            return Ok(_getAllUseCase.Execute());
+            _getPersonByNameUseCase = getPersonByNameUseCase;
         }
 
         /// <summary>
@@ -46,11 +27,10 @@ namespace AssessmentPersonAPI.V1.Controllers
         [ProducesResponseType(typeof(ResponseObject), StatusCodes.Status200OK)]
         [HttpGet]
         [LogCall(LogLevel.Information)]
-        //TODO: rename to match the identifier that will be used
-        [Route("{yourId}")]
-        public IActionResult ViewRecord(int yourId)
+        [Route("{personName}")]
+        public IActionResult ViewRecord(string personName)
         {
-            return Ok(_getByIdUseCase.Execute(yourId));
+            return Ok(_getPersonByNameUseCase.Execute(personName));
         }
     }
 }

@@ -1,5 +1,5 @@
 using System;
-using AssessmentPersonAPI.V1.Domain;
+using AssessmentPersonAPI.V1.Infrastructure;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -11,18 +11,18 @@ namespace AssessmentPersonAPI.Tests.V1.Domain
         [Test]
         public void EntitiesHaveAnId()
         {
-            var entity = new Entity();
+            var entity = new PersonEntity();
             entity.Id.Should().BeGreaterOrEqualTo(0);
         }
 
         [Test]
         public void EntitiesHaveACreatedAt()
         {
-            var entity = new Entity();
-            var date = new DateTime(2019, 02, 21);
-            entity.CreatedAt = date;
+            var entity = new PersonEntity();
+            var testFirstName = "First Last";
+            entity.FirstName = testFirstName;
 
-            entity.CreatedAt.Should().BeSameDateAs(date);
+            entity.FirstName.Should().BeEquivalentTo(testFirstName);
         }
     }
 }
