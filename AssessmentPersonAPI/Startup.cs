@@ -46,7 +46,7 @@ namespace AssessmentPersonAPI
         }
 
         public IConfiguration Configuration { get; }
-        private static List<ApiVersionDescription> _apiVersions { get; set; }
+        private static List<ApiVersionDescription> ApiVersions { get; set; }
         //TODO update the below to the name of your API
         private const string ApiName = "Your API Name";
 
@@ -106,7 +106,7 @@ namespace AssessmentPersonAPI
                 });
 
                 //Get every ApiVersion attribute specified and create swagger docs for them
-                foreach (var apiVersion in _apiVersions)
+                foreach (var apiVersion in ApiVersions)
                 {
                     var version = $"v{apiVersion.ApiVersion.ToString()}";
                     c.SwaggerDoc(version, new OpenApiInfo
@@ -195,12 +195,12 @@ namespace AssessmentPersonAPI
 
             //Get All ApiVersions,
             var api = app.ApplicationServices.GetService<IApiVersionDescriptionProvider>();
-            _apiVersions = api.ApiVersionDescriptions.ToList();
+            ApiVersions = api.ApiVersionDescriptions.ToList();
 
             //Swagger ui to view the swagger.json file
             app.UseSwaggerUI(c =>
             {
-                foreach (var apiVersionDescription in _apiVersions)
+                foreach (var apiVersionDescription in ApiVersions)
                 {
                     //Create a swagger endpoint for each swagger version
                     c.SwaggerEndpoint($"{apiVersionDescription.GetFormattedApiVersion()}/swagger.json",
