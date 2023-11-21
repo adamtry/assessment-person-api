@@ -164,7 +164,7 @@ namespace AssessmentPersonAPI
 
         private static void RegisterUseCases(IServiceCollection services)
         {
-            services.AddScoped<IGetPersonByNameUseCase, GetPersonPersonByNameUseCase>();
+            services.AddScoped<IGetPersonsByNameUseCase, GetPersonsByNameUseCase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

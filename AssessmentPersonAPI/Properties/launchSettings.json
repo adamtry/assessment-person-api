@@ -9,10 +9,8 @@
     }
   },
   "profiles": {
-    "assessment_person_a_p_i": {
+    "assessment_person_api": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/v1/healthcheck/ping",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",

@@ -10,12 +10,12 @@ namespace AssessmentPersonAPI.Tests.V1.Controllers
     public class AssessmentPersonApiControllerTests : LogCallAspectFixture
     {
         private AssessmentPersonApiController _classUnderTest;
-        private Mock<IGetPersonByNameUseCase> _mockGetPersonByNameUseCase;
+        private Mock<IGetPersonsByNameUseCase> _mockGetPersonByNameUseCase;
 
         [SetUp]
         public void SetUp()
         {
-            _mockGetPersonByNameUseCase = new Mock<IGetPersonByNameUseCase>();
+            _mockGetPersonByNameUseCase = new Mock<IGetPersonsByNameUseCase>();
             _classUnderTest = new AssessmentPersonApiController(_mockGetPersonByNameUseCase.Object);
         }
 

@@ -9,13 +9,13 @@ namespace AssessmentPersonAPI.Tests.V1.UseCase
     public class GetByNameUseCaseTests : LogCallAspectFixture
     {
         private Mock<IPersonGateway> _mockGateway;
-        private GetPersonPersonByNameUseCase _classUnderTest;
+        private GetPersonsByNameUseCase _classUnderTest;
 
         [SetUp]
         public void SetUp()
         {
             _mockGateway = new Mock<IPersonGateway>();
-            _classUnderTest = new GetPersonPersonByNameUseCase(_mockGateway.Object);
+            _classUnderTest = new GetPersonsByNameUseCase(_mockGateway.Object);
         }
 
         //TODO: test to check that the use case retrieves the correct record from the database.

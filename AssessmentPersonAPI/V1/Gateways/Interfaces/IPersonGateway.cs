@@ -6,6 +6,6 @@ namespace AssessmentPersonAPI.V1.Gateways
 {
     public interface IPersonGateway
     {
-        Person GetPersonByName(string name);
+        List<Person> SearchPersons(string name);
     }
 }

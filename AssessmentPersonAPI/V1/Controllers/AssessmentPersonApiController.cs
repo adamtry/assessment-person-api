@@ -13,10 +13,10 @@ namespace AssessmentPersonAPI.V1.Controllers
     [ApiVersion("1.0")]
     public class AssessmentPersonApiController : BaseController
     {
-        private readonly IGetPersonByNameUseCase _getPersonByNameUseCase;
-        public AssessmentPersonApiController(IGetPersonByNameUseCase getPersonByNameUseCase)
+        private readonly IGetPersonsByNameUseCase _getPersonsByNameUseCase;
+        public AssessmentPersonApiController(IGetPersonsByNameUseCase getPersonsByNameUseCase)
         {
-            _getPersonByNameUseCase = getPersonByNameUseCase;
+            _getPersonsByNameUseCase = getPersonsByNameUseCase;
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace AssessmentPersonAPI.V1.Controllers
         [Route("{personName}")]
         public IActionResult ViewRecord(string personName)
         {
-            return Ok(_getPersonByNameUseCase.Execute(personName));
+            return Ok(_getPersonsByNameUseCase.Execute(personName));
         }
     }
 }

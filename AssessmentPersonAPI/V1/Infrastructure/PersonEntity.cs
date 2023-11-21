@@ -1,7 +1,3 @@
-using Amazon.DynamoDBv2.DataModel;
-using Hackney.Core.DynamoDb.Converters;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AssessmentPersonAPI.V1.Infrastructure
 {
