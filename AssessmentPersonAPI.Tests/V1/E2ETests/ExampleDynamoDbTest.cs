@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 //namespace AssessmentPersonAPI.Tests.V1.E2ETests
 //{
-// For guidance on writing integration tests see the wiki page https://github.com/LBHackney-IT/lbh-assessment-person-a-p-i/wiki/Writing-Integration-Tests
+// For guidance on writing integration tests see the wiki page https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Writing-Integration-Tests
 // Example integration tests using DynamoDb
 
 //public class ExampleDynamoDbTest : DynamoDbIntegrationTests<Startup>

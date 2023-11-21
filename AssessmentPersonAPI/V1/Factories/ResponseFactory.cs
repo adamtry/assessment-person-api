@@ -8,7 +8,7 @@ namespace AssessmentPersonAPI.V1.Factories
     public static class ResponseFactory
     {
         //TODO: Map the fields in the domain object(s) to fields in the response object(s).
-        // More information on this can be found here https://github.com/LBHackney-IT/lbh-assessment-person-a-p-i/wiki/Factory-object-mappings
+        // More information on this can be found here https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Factory-object-mappings
         public static ResponseObject ToResponse(this Entity domain)
         {
             return new ResponseObject();

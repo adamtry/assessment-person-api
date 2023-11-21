@@ -1,4 +1,4 @@
-service: assessment-person-a-p-i
+service: assessment-person-api
 provider:
   name: aws
   runtime: dotnet6
@@ -22,7 +22,7 @@ provider:
 
 package:
 # TODO: Rename zipfile in build.sh and build.cmd to match this
-  artifact: ./bin/release/net6.0/assessment-person-a-p-i.zip
+  artifact: ./bin/release/net6.0/assessment-person-api.zip
 
 functions:
   assessmentPersonAPI:
@@ -30,9 +30,9 @@ functions:
     handler: AssessmentPersonAPI::AssessmentPersonAPI.LambdaEntryPoint::FunctionHandlerAsync
     role: lambdaExecutionRole
     environment:
-# TODO: Create ssm variables for this API's postgres mirror then rename assessment-person-a-p-i below to match api name
+# TODO: Create ssm variables for this API's postgres mirror then rename assessment-person-api below to match api name
 # TODO: Remove this line if DynamoDb is being used
-      CONNECTION_STRING: Host=${ssm:/assessment-person-a-p-i/${self:provider.stage}/postgres-hostname};Port=${ssm:/assessment-person-a-p-i/${self:provider.stage}/postgres-port};Database=assessment-person-a-p-i-mirror;Username=${ssm:/assessment-person-a-p-i/${self:provider.stage}/postgres-username};Password=${ssm:/assessment-person-a-p-i/${self:provider.stage}/postgres-password}
+      CONNECTION_STRING: Host=${ssm:/assessment-person-api/${self:provider.stage}/postgres-hostname};Port=${ssm:/assessment-person-api/${self:provider.stage}/postgres-port};Database=assessment-person-api-mirror;Username=${ssm:/assessment-person-api/${self:provider.stage}/postgres-username};Password=${ssm:/assessment-person-api/${self:provider.stage}/postgres-password}
     events:
       - http:
           path: /{proxy+}

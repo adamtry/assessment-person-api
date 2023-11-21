@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AssessmentPersonAPI.V1.Infrastructure
 {
     //TODO: rename table and add needed fields relating to the table columns.
-    // There's an example of this in the wiki https://github.com/LBHackney-IT/lbh-assessment-person-a-p-i/wiki/DatabaseContext
+    // There's an example of this in the wiki https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/DatabaseContext
 
     //TODO: Pick the attributes for the required data source, delete the others as appropriate
     // Postgres will use the "Table" and "Column" attributes

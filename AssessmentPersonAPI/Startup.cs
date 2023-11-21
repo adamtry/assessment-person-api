@@ -185,7 +185,7 @@ namespace AssessmentPersonAPI
                 app.UseHsts();
             }
 
-            app.UseXRay("assessment-person-a-p-i");
+            app.UseXRay("assessment-person-api");
 
 
             //Get All ApiVersions,

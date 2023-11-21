@@ -19,6 +19,6 @@ namespace AssessmentPersonAPI.Tests.V1.UseCase
         }
 
         //TODO: test to check that the use case retrieves the correct record from the database.
-        //Guidance on unit testing and example of mocking can be found here https://github.com/LBHackney-IT/lbh-assessment-person-a-p-i/wiki/Writing-Unit-Tests
+        //Guidance on unit testing and example of mocking can be found here https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Writing-Unit-Tests
     }
 }

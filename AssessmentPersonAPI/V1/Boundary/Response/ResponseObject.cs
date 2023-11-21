@@ -5,6 +5,6 @@ namespace AssessmentPersonAPI.V1.Boundary.Response
     {
         //TODO: add the fields that this API will return here
         //TODO: add xml comments containing information that will be included in the auto generated swagger docs
-        //Guidance on XML comments and response objects here (https://github.com/LBHackney-IT/lbh-assessment-person-a-p-i/wiki/Controllers-and-Response-Objects)
+        //Guidance on XML comments and response objects here (https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Controllers-and-Response-Objects)
     }
 }

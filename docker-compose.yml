@@ -1,8 +1,8 @@
 version: "3.2"
 
 services:
-  assessment-person-a-p-i:
-    image: assessment-person-a-p-i
+  assessment-person-api:
+    image: assessment-person-api
     build:
      context: .
      dockerfile: AssessmentPersonAPI/Dockerfile
@@ -27,8 +27,8 @@ services:
     volumes:
       - ./database:/docker-entrypoint-initdb.d
 
-  assessment-person-a-p-i-test:
-    image: assessment-person-a-p-i-test
+  assessment-person-api-test:
+    image: assessment-person-api-test
     build:
       context: .
       dockerfile: AssessmentPersonAPI.Tests/Dockerfile

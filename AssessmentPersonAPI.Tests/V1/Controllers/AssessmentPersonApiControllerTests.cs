@@ -7,9 +7,9 @@ using NUnit.Framework;
 namespace AssessmentPersonAPI.Tests.V1.Controllers
 {
     [TestFixture]
-    public class AssessmentPersonAPIControllerTests : LogCallAspectFixture
+    public class AssessmentPersonApiControllerTests : LogCallAspectFixture
     {
-        private AssessmentPersonAPIController _classUnderTest;
+        private AssessmentPersonApiController _classUnderTest;
         private Mock<IGetByIdUseCase> _mockGetByIdUseCase;
         private Mock<IGetAllUseCase> _mockGetByAllUseCase;
 
@@ -18,7 +18,7 @@ namespace AssessmentPersonAPI.Tests.V1.Controllers
         {
             _mockGetByIdUseCase = new Mock<IGetByIdUseCase>();
             _mockGetByAllUseCase = new Mock<IGetAllUseCase>();
-            _classUnderTest = new AssessmentPersonAPIController(_mockGetByAllUseCase.Object, _mockGetByIdUseCase.Object);
+            _classUnderTest = new AssessmentPersonApiController(_mockGetByAllUseCase.Object, _mockGetByIdUseCase.Object);
         }
 
 

@@ -13,17 +13,17 @@ namespace AssessmentPersonAPI.V1.Controllers
     [Produces("application/json")]
     [ApiVersion("1.0")]
     //TODO: rename class to match the API name
-    public class AssessmentPersonAPIController : BaseController
+    public class AssessmentPersonApiController : BaseController
     {
         private readonly IGetAllUseCase _getAllUseCase;
         private readonly IGetByIdUseCase _getByIdUseCase;
-        public AssessmentPersonAPIController(IGetAllUseCase getAllUseCase, IGetByIdUseCase getByIdUseCase)
+        public AssessmentPersonApiController(IGetAllUseCase getAllUseCase, IGetByIdUseCase getByIdUseCase)
         {
             _getAllUseCase = getAllUseCase;
             _getByIdUseCase = getByIdUseCase;
         }
 
-        //TODO: add xml comments containing information that will be included in the auto generated swagger docs (https://github.com/LBHackney-IT/lbh-assessment-person-a-p-i/wiki/Controllers-and-Response-Objects)
+        //TODO: add xml comments containing information that will be included in the auto generated swagger docs (https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Controllers-and-Response-Objects)
         /// <summary>
         /// ...
         /// </summary>

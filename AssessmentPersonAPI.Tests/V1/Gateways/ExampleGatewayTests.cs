@@ -9,7 +9,7 @@ namespace AssessmentPersonAPI.Tests.V1.Gateways
 {
     //TODO: Remove this file if Postgres gateway is not being used
     //TODO: Rename Tests to match gateway name
-    //For instruction on how to run tests please see the wiki: https://github.com/LBHackney-IT/lbh-assessment-person-a-p-i/wiki/Running-the-test-suite.
+    //For instruction on how to run tests please see the wiki: https://github.com/LBHackney-IT/lbh-assessment-person-api/wiki/Running-the-test-suite.
     [TestFixture]
     public class ExampleGatewayTests : DatabaseTests
     {
