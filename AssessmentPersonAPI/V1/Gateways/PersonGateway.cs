@@ -162,6 +162,8 @@ namespace AssessmentPersonAPI.V1.Gateways
             var result = allEntities.Where(person =>
             {
                 var combinedFields = $"{person.FirstName.ToLower()} {person.LastName.ToLower()} {person.Email.ToLower()}";
+
+                // In practice this would be a database query
                 var queryTerms = query.ToLower().Split(' ');
                 foreach (var term in queryTerms)
                 {
