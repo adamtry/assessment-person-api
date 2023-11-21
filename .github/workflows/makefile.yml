@@ -8,6 +8,8 @@ on:
 
 jobs:
   test:
+    env:
+      LBHPACKAGESTONEN: ${{ secrets.LBHPACKAGESTONEN }}
 
     runs-on: ubuntu-latest
 
@@ -15,6 +17,4 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run tests
-        with:
-            LBHPACKAGESTONEN: ${{ secrets.LBHPACKAGESTONEN }}
         run: make test
