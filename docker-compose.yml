@@ -9,7 +9,7 @@ services:
      args:
      - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
     ports:
-      - 3000:3000
+      - 5000:5000
     environment:
       - CONNECTION_STRING=Host=dev-database;Port=5432;Database=testdb;Username=postgres;Password=mypassword
 # TODO: If using DynamoDb remove the line above and uncomment the section below.

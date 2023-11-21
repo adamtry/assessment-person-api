@@ -21,6 +21,10 @@ API to search for Hackney residents and their associated data.
 
 To serve the application, run it using your IDE of choice, we use Visual Studio CE and JetBrains Rider.
 
+You can serve it locally with Docker by running `make serve`
+
+It will run on localhost:5000
+
 ### NuGet Packages
 At Hackney, we have created the NuGet Package to prevent the duplication of common code when implementing our APIs. Hence our NuGet packages will store the common code that can then be used in the relevant projects. For full details on the different features implemented within our packages please read [this ReadMe](https://github.com/LBHackney-IT/lbh-core/blob/release/README.md)
 
