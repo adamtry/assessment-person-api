@@ -10,8 +10,6 @@ namespace AssessmentPersonAPI.V1.Gateways
     //TODO: Rename to match the data source that is being accessed in the gateway eg. MosaicGateway
     public class PersonGateway : IPersonGateway
     {
-        private readonly DatabaseContext _databaseContext;
-
         public string RawPersonData = @"[
             {
                 ""id"": 1,
@@ -155,10 +153,7 @@ namespace AssessmentPersonAPI.V1.Gateways
             }
         ]";
 
-        public PersonGateway(DatabaseContext databaseContext)
-        {
-            _databaseContext = databaseContext;
-        }
+        public PersonGateway() { }
 
         public List<Person> Search(string query)
         {

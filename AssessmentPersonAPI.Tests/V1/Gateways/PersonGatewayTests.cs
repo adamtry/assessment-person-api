@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace AssessmentPersonAPI.Tests.V1.Gateways
 {
    [TestFixture]
-    public class PersonGatewayTests : DatabaseTests
+    public class PersonGatewayTests
     {
         private PersonGateway _classUnderTest;
         private string _testData;
@@ -15,7 +15,7 @@ namespace AssessmentPersonAPI.Tests.V1.Gateways
         [SetUp]
         public void Setup()
         {
-            _classUnderTest = new PersonGateway(DatabaseContext);
+            _classUnderTest = new PersonGateway();
             _testData = @"[
                 {
                     ""id"": 1,

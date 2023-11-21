@@ -16,7 +16,7 @@ shell:
 
 .PHONY: test
 test:
-	docker-compose up test-database & docker-compose build assessment-person-api-test && docker-compose up assessment-person-api-test
+	docker-compose build assessment-person-api-test && docker-compose up assessment-person-api-test
 
 .PHONY: lint
 lint:
