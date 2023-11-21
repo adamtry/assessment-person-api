@@ -162,7 +162,15 @@ namespace AssessmentPersonAPI.V1.Gateways
             var result = allEntities.Where(person =>
             {
                 var combinedFields = $"{person.FirstName.ToLower()} {person.LastName.ToLower()} {person.Email.ToLower()}";
-                return (combinedFields).Contains(query.ToLower());
+                var queryTerms = query.ToLower().Split(' ');
+                foreach (var term in queryTerms)
+                {
+                    if (combinedFields.Contains(term))
+                    {
+                        return true;
+                    }
+                }
+                return false;
             });
 
             return result.ToList();
