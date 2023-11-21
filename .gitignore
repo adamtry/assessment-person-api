@@ -59,7 +59,7 @@ bin/
 .idea/
 tmp/
 .vs/
-/base-api.Tests/Properties/launchSettings.json
+/assessment-person-a-p-i.Tests/Properties/launchSettings.json
 
 .fake
 .ionide

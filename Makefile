@@ -4,19 +4,19 @@ setup:
 
 .PHONY: build
 build:
-	docker-compose build base-api
+	docker-compose build assessment-person-a-p-i
 
 .PHONY: serve
 serve:
-	docker-compose build base-api && docker-compose up base-api
+	docker-compose build assessment-person-a-p-i && docker-compose up assessment-person-a-p-i
 
 .PHONY: shell
 shell:
-	docker-compose run base-api bash
+	docker-compose run assessment-person-a-p-i bash
 
 .PHONY: test
 test:
-	docker-compose up test-database & docker-compose build base-api-test && docker-compose up base-api-test
+	docker-compose up test-database & docker-compose build assessment-person-a-p-i-test && docker-compose up assessment-person-a-p-i-test
 
 .PHONY: lint
 lint:

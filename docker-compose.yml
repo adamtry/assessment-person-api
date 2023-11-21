@@ -1,11 +1,11 @@
 version: "3.2"
 
 services:
-  base-api:
-    image: base-api
+  assessment-person-a-p-i:
+    image: assessment-person-a-p-i
     build:
      context: .
-     dockerfile: BaseApi/Dockerfile
+     dockerfile: AssessmentPersonAPI/Dockerfile
      args:
      - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
     ports:
@@ -27,11 +27,11 @@ services:
     volumes:
       - ./database:/docker-entrypoint-initdb.d
 
-  base-api-test:
-    image: base-api-test
+  assessment-person-a-p-i-test:
+    image: assessment-person-a-p-i-test
     build:
       context: .
-      dockerfile: BaseApi.Tests/Dockerfile
+      dockerfile: AssessmentPersonAPI.Tests/Dockerfile
       args:
       - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
     environment:
