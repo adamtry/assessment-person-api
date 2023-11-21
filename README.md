@@ -13,7 +13,7 @@ API to search for Hackney residents and their associated data.
 
 1. Install [Docker][docker-download]
 2. Clone this repository.
-3. Rename the initial template.
+3. Set the `LBHPACKAGESTOKEN` environment variable on your system to a NuGet token with access rights to Hackney's Nuget Packages.
 4. Open it in your IDE.
 
 
